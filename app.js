@@ -13,6 +13,7 @@ mongoose.connect(process.env.MONGODB_URI, () => {
     console.log("connected to database");
 });
 
+
 const todoSchema = new mongoose.Schema({
     title: String,
     body: String,
