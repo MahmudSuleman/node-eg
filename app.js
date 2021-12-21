@@ -37,8 +37,6 @@ app.post("/todo", async (req, res) => {
       body: body,
       isCompleted: isCompleted,
     });
-    s;
-
     res.send(todo);
   } catch (err) {
     res.send(err);
