@@ -11,12 +11,9 @@ app.use(cors());
 
 dotenv.config();
 
-mongoose.connect(
-  "mongodb+srv://mahmud:e!6pYE2f7ZdUixy@node-demo.e6bsr.mongodb.net/todos?retryWrites=true&w=majority",
-  () => {
-    console.log("connected to database");
-  }
-);
+mongoose.connect(process.env.MONGODB_URI, () => {
+  console.log("connected to database");
+});
 
 const todoSchema = new mongoose.Schema({
   title: String,
