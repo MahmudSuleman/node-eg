@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGODB_URI, () => {
 const todoSchema = new mongoose.Schema({
   title: String,
   body: String,
-  isCompleted: Boolean,
+  isCompleted: { type: Boolean, default: false },
 });
 
 const Todo = mongoose.model("todo", todoSchema);
