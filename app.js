@@ -7,6 +7,7 @@ const cors = require("cors");
 const app = express();
 
 app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 app.use(cors());
 
 dotenv.config();
