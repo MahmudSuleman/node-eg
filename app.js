@@ -1,4 +1,5 @@
 const express = require("express");
+
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
@@ -6,8 +7,8 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(cors());
 
 dotenv.config();
@@ -19,6 +20,7 @@ mongoose.connect(process.env.MONGODB_URI, () => {
 const todoSchema = new mongoose.Schema({
   title: String,
   body: String,
+
   isCompleted: { type: Boolean, default: false },
 });
 
@@ -63,7 +65,7 @@ app.put("/todo/:id", async (req, res) => {
 
     res.send(todo);
   } catch (err) {
-    console.log(err);
+    res.send(err);
   }
 });
 
